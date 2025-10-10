@@ -15,8 +15,15 @@
     </header>
 
     <main>
-        <h2>Página Inicial</h2>
-        <p>Bem-vindo ao portal. Aqui você encontrará todas as informações importantes sobre o seu percurso académico.</p>
+    <h2>Mural de Anúncios</h2>
+
+    {% for anuncio in anuncios %}
+        <article class="anuncio">
+            <h3>{{ anuncio.titulo }}</h3>
+            <p class="data-anuncio">Publicado em: {{ anuncio.data }}</p>
+            <p>{{ anuncio.conteudo }}</p>
+        </article>
+    {% endfor %}
     </main>
 
     <footer>
