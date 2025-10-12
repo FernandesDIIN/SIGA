@@ -31,6 +31,12 @@ def homepage():
     # Agora, vamos enviar a nossa lista de anúncios para o HTML
     return render_template('index.html', anuncios=anuncios_da_escola)
 
+# Define a rota para a página de login
+@app.route('/login')
+def pagina_login():
+    return render_template('login.html')
 
+
+# Permite executar a aplicação
 if __name__ == '__main__':
     app.run(debug=True)
