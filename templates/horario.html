@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block titulo %}Meu Horário{% endblock %}
+
+{% block conteudo %}
+    <h2>Horário de Aulas</h2>
+
+    <table class="tabela-horario">
+        <thead>
+            <tr>
+                <th>Dia da Semana</th>
+                <th>Horário</th>
+                <th>Disciplina</th>
+                <th>Sala</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aula in horario %}
+            <tr>
+                <td>{{ aula.dia }}</td>
+                <td>{{ aula.hora }}</td>
+                <td>{{ aula.disciplina }}</td>
+                <td>{{ aula.sala }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

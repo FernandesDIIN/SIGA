@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "layout.html" %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% block titulo %}Login{% endblock %}
 
-    <title>SIGA - Login</title>
-</head>
-<body>
+{% block conteudo %}
+    <h2>Acesso ao Portal</h2>
 
-    <header>
-        <h1>SIGA - Portal Académico</h1>
-    </header>
-
-    <main>
-        <h2>Acesso ao Portal</h2>
-        <form>
-            <div class="form-grupo">
-                <label for="utilizador">Nome de Utilizador:</label>
-                <input type="text" id="utilizador" name="utilizador" required>
-            </div>
-            <div class="form-grupo">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
-            </div>
-            <button type="submit">Entrar</button>
-        </form>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 SIGA. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
+    <form action="{{ url_for('pagina_login') }}" method="POST">
+        <div class="form-grupo">
+            <label for="utilizador">Nome de Utilizador:</label>
+            <input type="text" id="utilizador" name="utilizador" required>
+        </div>
+        <div class="form-grupo">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+    </form>
+{% endblock %}

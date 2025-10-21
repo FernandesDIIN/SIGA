@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>SIGA - {% block titulo %}{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1>SIGA - Portal Académico</h1>
+        <nav>
+            <a href="{{ url_for('homepage') }}">Início</a>
+            {% if session['utilizador_logado'] %}
+                <a href="{{ url_for('pagina_horario') }}">Horário</a>
+                <a href="#">Notas</a>
+                <span class="bem-vindo">Bem-vindo, {{ session['utilizador_logado'] }}!</span>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('pagina_login') }}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SIGA. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
